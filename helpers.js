@@ -3,19 +3,35 @@ var score = document.getElementById("score");
 var button = document.getElementById("button");
 var button3 = document.getElementById("button3");
 
-var sum = 0;
+var currentScore = 0;
+var clickerMultiplier = 1;
+var upgradeValue = 10;
 
-function count(){
-    sum += 1;
 
-    score.innerHTML = "Score: " + sum;
-}
+function count()
+    {
+        currentScore += 1*clickerMultiplier;
+        score.innerHTML = "Score: " + currentScore;
+        clickerUpgrade();
+    }
 
-function reset(){
-    sum = 0;
+function clickerUpgrade()
+    {
 
-    score.innerHTML = "Score: " + sum;
-}
+        if (upgradeValue<=currentScore)
+        {
+            clickerMultiplier+= clickerMultiplier;
+            upgradeValue= upgradeValue*5;
 
-button.addEventListener("click", count);
-button3.addEventListener("click", reset);
+        }
+    }
+
+function reset()
+    {
+        currentScore = 0;
+        score.innerHTML = "Score: " + currentScore;
+    }
+
+// button.addEventListener("click", count);
+// button.addEventListener("click", clickerUpgrade);
+// button3.addEventListener("click", reset);
