@@ -4,15 +4,15 @@ var button = document.getElementById("button");
 var button3 = document.getElementById("button3")
 var button4 = document.getElementById("button4")
 var counter = 1
-var autoCount =1;
-var level1 = 20;
-var level2 = 50;
-var level3 = 100;
-var level4 = 200;
-var level5 = 500;
+var autoCount =0;
+var level = 20;
+// var level2 = 50;
+// var level3 = 100;
+// var level4 = 200;
+// var level5 = 500;
 button3.disabled = true;
 button4.disabled = true;
-var checkSum
+var checkSum;
 
 var sum = 0;
 function upgradeCounter() {
@@ -24,6 +24,7 @@ function upgradeCounter() {
 }
 
 function upgradeAutoCounter() {
+    autoCount+=1;
     autoCount *= 2;
     button3.disabled = true;
     button4.disabled = true;
@@ -50,9 +51,10 @@ function autoClicker(){
     setInterval(function(){
         sum+=autoCount;
         score.innerHTML = "Score: " + sum;
-        if (sum === 20 || sum === 50 || sum === 100 || sum === 200 || sum === 500) {
+        if (sum >= level) {
             button3.disabled = false;
-            button4.disabled = false
+            button4.disabled = false;
+            level = level*2;
         }
     },1000)
 }
@@ -63,9 +65,10 @@ function count() {
     sum += counter;
 
     score.innerHTML = "Score: " + sum;
-    if (sum === 20 || sum === 50 || sum === 100 || sum === 200 || sum === 500) {
+    if (sum >= level) {
         button3.disabled = false;
-        button4.disabled = false
+        button4.disabled = false;
+        level = level*2;
     }
 }
 
