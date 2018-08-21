@@ -1,37 +1,86 @@
 var score = document.getElementById("score");
 
 var button = document.getElementById("button");
-var button3 = document.getElementById("button3");
+var button3 = document.getElementById("button3")
+var button4 = document.getElementById("button4")
+var counter = 1
+var autoCount =1;
+var level = 20;
+// var level2 = 50;
+// var level3 = 100;
+// var level4 = 200;
+// var level5 = 500;
+button3.disabled = true;
+button4.disabled = true;
+var checkSum
 
-var currentScore = 0;
-var clickerMultiplier = 1;
-var upgradeValue = 10;
+var sum = 0;
+function upgradeCounter() {
+    counter *= 2;
+    button3.disabled = true;
+    button4.disabled = true;
+
+    button.innerText = "+" + counter;
+}
+
+function upgradeAutoCounter() {
+    autoCount *= 2;
+    button3.disabled = true;
+    button4.disabled = true;
 
 
-function count()
-    {
-        currentScore += 1*clickerMultiplier;
-        score.innerHTML = "Score: " + currentScore;
-        clickerUpgrade();
-    }
+}
 
-function clickerUpgrade()
-    {
 
-        if (upgradeValue<=currentScore)
-        {
-            clickerMultiplier+= clickerMultiplier;
-            upgradeValue= upgradeValue*5;
 
+
+
+
+
+// function upgradelevel(){
+//     //update counters for either auto counter or counter
+//
+//
+//     }
+
+
+
+
+function autoClicker(){
+    setInterval(function(){
+        sum+=autoCount;
+        score.innerHTML = "Score: " + sum;
+        if (sum >= level) {
+            button3.disabled = false;
+            button4.disabled = false;
+            level = level*2;
         }
-    }
+    },1000)
+}
 
-function reset()
-    {
-        currentScore = 0;
-        score.innerHTML = "Score: " + currentScore;
-    }
 
-// button.addEventListener("click", count);
-// button.addEventListener("click", clickerUpgrade);
-// button3.addEventListener("click", reset);
+
+function count() {
+    sum += counter;
+
+    score.innerHTML = "Score: " + sum;
+    if (sum >= level) {
+        button3.disabled = false;
+        button4.disabled = false;
+        level = level*2;
+    }
+}
+
+function reset(){
+    sum = 0;
+
+    score.innerHTML = "Score: " + sum;
+}
+autoClicker();
+button3.addEventListener("click",upgradeCounter);
+
+button.addEventListener("click", count);
+
+button4.addEventListener("click",upgradeAutoCounter);
+
+ //
