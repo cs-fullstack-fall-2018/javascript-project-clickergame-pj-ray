@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    background: cyan;
+}
+div{
+    background: white;
+    border: 1px solid black;
+}
+.menu {
+    float: left;
+    width: 20%;
+}
+.button {
+    padding: 8px;
+    margin-top: 7px;
+    border: 1px solid black;
+    background: white;
+}
+.button3 {
+     padding: 8px;
+     margin-top: 7px;
+    border: 1px solid black;
+    background: white;
+ }
+.button4 {
+    padding: 8px;
+    margin-top: 7px;
+    border: 1px solid black;
+    background: white;
+}
+.button5 {
+    padding: 8px;
+    margin-top: 7px;
+    border: 1px solid black;
+    background: white;
+}
+
+.main {
+    float: left;
+    width: 60%;
+    padding: 0 20px;
+    overflow: hidden;
+    border: 1px solid black;
+    background: white;
+}
