@@ -53,6 +53,7 @@ function playAudio() {
 function autoClicker(){
     setInterval(function(){
         sum+=autoCount;
+        level.innerHTML = "Level: " + level;
         score.innerHTML = "Score: " + sum;
         if (sum >= level) {
             button3.disabled = false;
@@ -67,7 +68,7 @@ function autoClicker(){
 
 function count() {
     sum += counter;
-
+    level.innerHTML = "Level: " + level;
     score.innerHTML = "Score: " + sum;
     if (sum >= level) {
         button3.disabled = false;
@@ -81,6 +82,7 @@ function reset(){
     sum = 0;
 
     score.innerHTML = "Score: " + sum;
+    level.innerHTML = "Level: " + level;
 }
 autoClicker();
 button3.addEventListener("click",upgradeCounter);
